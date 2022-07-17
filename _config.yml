@@ -43,7 +43,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -109,8 +109,8 @@ theme: next
 deploy:
   type: git
   repo: https://github.com/david0352721/david0352721.github.io.git
-  branch: github-pages #儲存庫分支
-  message: 'First Commit' #commit 訊息
+  branch: master  #儲存庫分支
+#  message: 'First Commit' #commit 訊息
 
 #count
 symbols_count_time:
