@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="MarkdownMarkdown的目標是實現「易讀易寫」。就讓我來用Markdown紀錄一下語法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown 語法使用">
+<meta property="og:url" content="http://example.com/Markdown-%E8%AA%9E%E6%B3%95%E4%BD%BF%E7%94%A8/">
+<meta property="og:site_name" content="App開發紀錄筆記">
+<meta property="og:description" content="MarkdownMarkdown的目標是實現「易讀易寫」。就讓我來用Markdown紀錄一下語法。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-07-10T13:38:29.000Z">
+<meta property="article:modified_time" content="2022-07-17T10:07:17.513Z">
+<meta property="article:author" content="David">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/Markdown-%E8%AA%9E%E6%B3%95%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Markdown 語法使用 | App開發紀錄筆記</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZZ1MC5630"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5ZZ1MC5630');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">App開發紀錄筆記</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">隨手寫，隨手記</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Markdown-%E8%AA%9E%E6%B3%95%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="David">
+      <meta itemprop="description" content="心動不如馬上行動">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="App開發紀錄筆記">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Markdown 語法使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-07-10 21:38:29" itemprop="dateCreated datePublished" datetime="2022-07-10T21:38:29+08:00">2022-07-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-07-17 18:07:17" itemprop="dateModified" datetime="2022-07-17T18:07:17+08:00">2022-07-17</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>882</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><p>Markdown的目標是實現「易讀易寫」。<br>就讓我來用Markdown紀錄一下語法。</p>
+<span id="more"></span>
+
+<h2 id="主標題"><a href="#主標題" class="headerlink" title="主標題"></a>主標題</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">主標題</span></span><br><span class="line"><span class="section">===</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="副標題"><a href="#副標題" class="headerlink" title="副標題"></a>副標題</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">副標題</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="標題大小"><a href="#標題大小" class="headerlink" title="標題大小"></a>標題大小</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># H1</span></span><br><span class="line"><span class="section">## H2</span></span><br><span class="line"><span class="section">### H3</span></span><br><span class="line"><span class="section">#### H4</span></span><br><span class="line"><span class="section">##### H5</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="字體效果"><a href="#字體效果" class="headerlink" title="字體效果"></a>字體效果</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">*斜體字*</span></span><br><span class="line"><span class="emphasis">_斜體2_</span></span><br><span class="line"><span class="strong">**粗體字**</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*斜體兼粗體*</span>**</span></span><br><span class="line">~~刪除線~~</span><br><span class="line">文字^上標^</span><br><span class="line">文字~下標~</span><br><span class="line">==螢光標記==</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="引文"><a href="#引文" class="headerlink" title="引文"></a>引文</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;縮排</span><br><span class="line">&gt;第一層</span><br><span class="line">&gt;&gt;第二層</span><br><span class="line">&gt;&gt;&gt;第三層</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="標號"><a href="#標號" class="headerlink" title="標號"></a>標號</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.數字標號</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 其他標號</span><br><span class="line"></span><br><span class="line"><span class="bullet">+</span> 其他標號</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> 其他標號</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="巢狀標記"><a href="#巢狀標記" class="headerlink" title="巢狀標記"></a>巢狀標記</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一層</span><br><span class="line">[tab]1. 第二層.1</span><br><span class="line">[tab]內容</span><br><span class="line">[tab]2. 第二層.2</span><br><span class="line">[<span class="string">tab</span>][<span class="symbol">tab</span>]1. 第三層.1</span><br><span class="line">[<span class="string">tab</span>][<span class="symbol">tab</span>][<span class="string">tab</span>]內容</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="定義清單"><a href="#定義清單" class="headerlink" title="定義清單"></a>定義清單</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Name1</span><br><span class="line">: description1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="連結-and-簡易超連結"><a href="#連結-and-簡易超連結" class="headerlink" title="連結 and 簡易超連結"></a>連結 and 簡易超連結</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">連結</span><br><span class="line">: [<span class="string">Google</span>](<span class="link">https://www.google.com.tw &quot;游標顯示Google&quot;</span>)</span><br><span class="line">簡易超連結</span><br><span class="line">: <span class="language-xml">&lt;https://www.google.com.tw&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="分隔線"><a href="#分隔線" class="headerlink" title="分隔線"></a>分隔線</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">第一個</span><br><span class="line"><span class="section">需要空行</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">第二個</span><br><span class="line"><span class="strong">**<span class="emphasis">*</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第三個</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">- - -</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第四個</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">*</span> <span class="emphasis">* *</span></span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>`&#96;&#96;程式類型<br>程式碼<br>`&#96;&#96;</p>
+<hr>
+<h2 id="標籤連結"><a href="#標籤連結" class="headerlink" title="標籤連結"></a>標籤連結</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">Google</span>][<span class="symbol">1</span>]</span><br><span class="line">空行</span><br><span class="line">  [1]: https://www.google.com/  &quot;游標Google&quot;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="圖片及連結"><a href="#圖片及連結" class="headerlink" title="圖片及連結"></a>圖片及連結</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">圖片:</span><br><span class="line">![<span class="string">圖片名稱</span>](<span class="link">連結 &quot;游標顯示的文字&quot;</span>)</span><br><span class="line">圖片連結:</span><br><span class="line">[<span class="string">![圖片</span>](<span class="link">圖片網址</span>)](<span class="link">連結網址</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| 欄位1 | 欄位2 | 欄位3 |</span><br><span class="line">| :-- | --: | :--: |</span><br><span class="line">| 置左 | 置右 | 置中 |</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="短區塊"><a href="#短區塊" class="headerlink" title="短區塊"></a>短區塊</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">`這是一個短區塊內容`</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="勾選框框"><a href="#勾選框框" class="headerlink" title="勾選框框"></a>勾選框框</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> [ ] 未勾選</span><br><span class="line"><span class="bullet">-</span> [x] 勾選</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="跳脫字元"><a href="#跳脫字元" class="headerlink" title="跳脫字元"></a>跳脫字元</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\+任意有用到的符號</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" rel="prev" title="第一篇文章">
+      <i class="fa fa-chevron-left"></i> 第一篇文章
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Andorid-Webview-Upload-Image-%E7%B6%B2%E9%A0%81%E4%B8%8A%E5%82%B3%E5%9C%96/" rel="next" title="Andorid Webview Upload Image 網頁上傳圖">
+      Andorid Webview Upload Image 網頁上傳圖 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown"><span class="nav-number">1.</span> <span class="nav-text">Markdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E6%A8%99%E9%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">主標題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%AF%E6%A8%99%E9%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">副標題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C%E5%A4%A7%E5%B0%8F"><span class="nav-number">4.</span> <span class="nav-text">標題大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E9%AB%94%E6%95%88%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">字體效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E6%96%87"><span class="nav-number">6.</span> <span class="nav-text">引文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%99%E8%99%9F"><span class="nav-number">7.</span> <span class="nav-text">標號</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A2%E7%8B%80%E6%A8%99%E8%A8%98"><span class="nav-number">8.</span> <span class="nav-text">巢狀標記</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9%E6%B8%85%E5%96%AE"><span class="nav-number">9.</span> <span class="nav-text">定義清單</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%A3%E7%B5%90-and-%E7%B0%A1%E6%98%93%E8%B6%85%E9%80%A3%E7%B5%90"><span class="nav-number">10.</span> <span class="nav-text">連結 and 簡易超連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%9A%94%E7%B7%9A"><span class="nav-number">11.</span> <span class="nav-text">分隔線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">12.</span> <span class="nav-text">程式碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%99%E7%B1%A4%E9%80%A3%E7%B5%90"><span class="nav-number">13.</span> <span class="nav-text">標籤連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%96%E7%89%87%E5%8F%8A%E9%80%A3%E7%B5%90"><span class="nav-number">14.</span> <span class="nav-text">圖片及連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">15.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%AD%E5%8D%80%E5%A1%8A"><span class="nav-number">16.</span> <span class="nav-text">短區塊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%BE%E9%81%B8%E6%A1%86%E6%A1%86"><span class="nav-number">17.</span> <span class="nav-text">勾選框框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%B3%E8%84%AB%E5%AD%97%E5%85%83"><span class="nav-number">18.</span> <span class="nav-text">跳脫字元</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">David</p>
+  <div class="site-description" itemprop="description">心動不如馬上行動</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">David</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
