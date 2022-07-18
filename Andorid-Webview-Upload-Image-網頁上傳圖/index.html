@@ -28,7 +28,7 @@
 <meta property="og:description" content="最近遇到了網站要包進來App內，遇到了WEB內需要上傳相片的需求，找到了一些答案，自己把它彙整整理起來。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-07-11T13:50:54.000Z">
-<meta property="article:modified_time" content="2022-07-17T14:44:32.828Z">
+<meta property="article:modified_time" content="2022-07-18T01:08:47.264Z">
 <meta property="article:author" content="David">
 <meta property="article:tag" content="Android, WebView, Kotlin">
 <meta name="twitter:card" content="summary">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-07-17 22:44:32" itemprop="dateModified" datetime="2022-07-17T22:44:32+08:00">2022-07-17</time>
+                <time title="修改時間：2022-07-18 09:08:47" itemprop="dateModified" datetime="2022-07-18T09:08:47+08:00">2022-07-18</time>
               </span>
 
           
@@ -210,7 +210,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>6.2k</span>
+              <span>7k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -233,8 +233,8 @@
 <p>最近遇到了網站要包進來App內，遇到了WEB內需要上傳相片的需求，找到了一些答案，自己把它彙整整理起來。</p>
 <span id="more"></span>
 
-<h3 id="網路開啟及WebView設定"><a href="#網路開啟及WebView設定" class="headerlink" title="網路開啟及WebView設定"></a>網路開啟及WebView設定</h3><p>先在Manifest上增加網路的設定</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;user-permission android:name=<span class="string">&quot;android.permission.INTERNET&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="網路開啟及WebView設定"><a href="#網路開啟及WebView設定" class="headerlink" title="網路開啟及WebView設定"></a>網路開啟及WebView設定</h3><p>先在Manifest上增加網路的設定及相機與檔案的使用權限</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;user-permission android:name=<span class="string">&quot;android.permission.INTERNET&quot;</span>&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.CAMERA&quot;</span> /&gt;</span><br><span class="line">&lt;uses-feature android:name=<span class="string">&quot;android.hardware.camera&quot;</span> android:required=<span class="string">&quot;true&quot;</span> /&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span> /&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.WRITE_INTERNAL_STORAGE&quot;</span> /&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.READ_EXTERNAL_STORAGE&quot;</span> /&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.READ_INTERNAL_STORAGE&quot;</span> /&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>在Android 9(API LEVEL 28)以上，如果使用 <strong>http:&#x2F;&#x2F;</strong> 開頭的網址需要多設定一行在Application</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;application&gt;</span><br><span class="line">    ...</span><br><span class="line">    android:usesCleartextTraffic=<span class="string">&quot;true&quot;</span></span><br><span class="line">    ...</span><br><span class="line">&lt;/application&gt;</span><br></pre></td></tr></table></figure>
@@ -243,11 +243,11 @@
 <p>Webview Layout的部分就自行設定，我就把它設定成全畫面</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;WebView</span><br><span class="line">    android:id=<span class="string">&quot;@+id/mainWebView&quot;</span></span><br><span class="line">    android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    android:layout_height=<span class="string">&quot;match_parent&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
 
-<p>findViewById</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> mainWebView = findViewById(R.id.mainWebView)</span><br></pre></td></tr></table></figure>
+<p>findViewById及設定變數</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> uploadMessage: ValueCallback&lt;Array&lt;Uri&gt;&gt;? = <span class="literal">null</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> cameraFilePath: String? = <span class="literal">null</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> captureUri: Uri? = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> mainWebView = findViewById(R.id.mainWebView)</span><br></pre></td></tr></table></figure>
 
 <p>WebView.Settings</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> settings = mainWebView.settings</span><br><span class="line">settings.javaScriptEnabled = <span class="literal">true</span> <span class="comment">//能使用Javascript</span></span><br><span class="line">settings.domStorageEnabled = <span class="literal">true</span></span><br><span class="line">settings.allowFileAccess = <span class="literal">true</span></span><br><span class="line">settings.allowContentAccess = <span class="literal">true</span></span><br><span class="line">settings.cacheMode = WebSettings.LOAD_DEFAULT</span><br><span class="line">settings.setSupportZoom(<span class="literal">true</span>)</span><br><span class="line">settings.useWideViewPort = <span class="literal">true</span></span><br><span class="line">settings.builtInZoomControls = <span class="literal">false</span></span><br><span class="line">settings.setSupportMultipleWindows(<span class="literal">true</span>)</span><br><span class="line">settings.javaScriptCanOpenWindowsAutomatically = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> settings = mainWebView.settings</span><br><span class="line">settings.javaScriptEnabled = <span class="literal">true</span> <span class="comment">//能使用Javascript</span></span><br><span class="line">settings.domStorageEnabled = <span class="literal">true</span> <span class="comment">//啟用dom儲存非必要</span></span><br><span class="line">settings.allowFileAccess = <span class="literal">true</span> <span class="comment">//使用檔案權限</span></span><br><span class="line">settings.cacheMode = WebSettings.LOAD_DEFAULT <span class="comment">//快取模式</span></span><br><span class="line">settings.setSupportZoom(<span class="literal">true</span>) <span class="comment">//支持手勢放大 default is true</span></span><br><span class="line">settings.useWideViewPort = <span class="literal">true</span> <span class="comment">//啟用&#x27;viewport&#x27;標記</span></span><br><span class="line">settings.builtInZoomControls = <span class="literal">false</span> <span class="comment">//禁止內置的縮放機制</span></span><br><span class="line">settings.setSupportMultipleWindows(<span class="literal">true</span>) <span class="comment">//可開啟多個窗口</span></span><br><span class="line">settings.javaScriptCanOpenWindowsAutomatically = <span class="literal">true</span> <span class="comment">//針對JS開啟新的窗口</span></span><br></pre></td></tr></table></figure>
 
 
 <h3 id="觸發機制"><a href="#觸發機制" class="headerlink" title="觸發機制"></a>觸發機制</h3><p>WebView內的ChromClient有上傳檔案時會觸發的方法，抓出來改寫它。</p>
